@@ -20,13 +20,13 @@ class TagController extends Controller
     {
         Tag::create($request->validated());
 
-        return redirect(route('tags.index'));
+        return redirect(route('tags.index'))->with('status', 'Tag Created!');
     }
 
     public function destroy(Tag $tag)
     {
         $tag->delete();
 
-        return redirect(route('tags.index'));
+        return redirect(route('tags.index'))->with('status', 'Tag Deleted!');
     }
 }
